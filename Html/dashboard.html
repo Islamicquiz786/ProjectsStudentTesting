@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Dashboard | Ethical Hacking</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #e74c3c;
+        }
+        .warning-banner {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 5px solid #dc3545;
+        }
+        .vulnerability-section {
+            margin: 30px 0;
+        }
+        .vulnerability-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+        .vulnerability-card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .try-it {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .try-it:hover {
+            background-color: #c0392b;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ethical Hacking Learning Dashboard</h1>
+            <p>Practice security vulnerabilities in a safe environment</p>
+        </header>
+
+        <div class="warning-banner">
+            <strong>IMPORTANT:</strong> This dashboard contains intentional vulnerabilities for educational purposes only. 
+            Never test these techniques on real websites without permission.
+        </div>
+
+        <div class="vulnerability-section">
+            <h2>Available Learning Modules</h2>
+            
+            <div class="vulnerability-card">
+                <h3>1. SQL Injection</h3>
+                <p>Try injecting SQL commands through the login form to bypass authentication.</p>
+                <button class="try-it" onclick="window.location.href='login.html'">Try SQL Injection</button>
+            </div>
+
+            <div class="vulnerability-card">
+                <h3>2. Cross-Site Scripting (XSS)</h3>
+                <p>Test XSS vulnerabilities in the search functionality.</p>
+                <button class="try-it" onclick="alert('Try entering: <script>alert(\'XSS\')</script> in search fields')">Show XSS Example</button>
+            </div>
+
+            <div class="vulnerability-card">
+                <h3>3. Broken Authentication</h3>
+                <p>Explore weak session management and authentication flaws.</p>
+                <button class="try-it" onclick="window.location.href='login.html?admin=true'">Try Admin Bypass</button>
+            </div>
+        </div>
+
+        <div class="user-info">
+            <h3>Your Session Information</h3>
+            <p><strong>Username:</strong> <span id="display-username">guest_user</span></p>
+            <p><strong>Session ID:</strong> <span id="session-id">123456789</span></p>
+            <p><strong>Last Login:</strong> <span id="last-login">Never</span></p>
+        </div>
+
+        <footer>
+            <p>For educational purposes only | © 2023 Ethical Hacking Training</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple JavaScript for demonstration purposes
+        document.getElementById('display-username').textContent = 
+            new URLSearchParams(window.location.search).get('username') || 'guest_user';
+        
+        document.getElementById('last-login').textContent = new Date().toLocaleString();
+        
+        // Generate random session ID
+        document.getElementById('session-id').textContent = 
+            Math.floor(Math.random() * 1000000000);
+    </script>
+</body>
+</html>
